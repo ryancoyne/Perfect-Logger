@@ -1,10 +1,26 @@
-// Generated automatically by Perfect Assistant Application
-// Date: 2017-09-29 18:02:27 +0000
+// swift-tools-version:4.0
+
 import PackageDescription
 let package = Package(
-	name: "PerfectLogger",
-	targets: [],
-	dependencies: [
-		.Package(url: "https://github.com/PerfectlySoft/Perfect-CURL.git", majorVersion: 3),
-	]
+    name: "PerfectLogger",
+    products: [
+        // Products define the executables and libraries produced by a package, and make them visible to other packages.
+        .library(
+            name: "PerfectLogger",
+            targets: ["PerfectLogger"]
+        ),
+    ],
+    dependencies: [
+        .package(
+            url: "https://github.com/PerfectlySoft/Perfect-CURL.git",
+            from: "3.1.0"
+        ),
+    ],
+    targets: [
+        .target(
+            name: "PerfectLogger",
+            dependencies: ["PerfectCURL"],
+            path: "Sources/PerfectLogger"
+        ),
+    ]
 )
